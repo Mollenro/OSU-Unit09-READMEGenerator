@@ -56,11 +56,6 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'link',
-        message: 'Please provide a link to your GitHub account',
-    },
-    {
-        type: 'input',
         name: 'email',
         message: 'What is your email?',
     }
@@ -79,14 +74,45 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then(function (userInput){
-        console.log(userInput)
-        //write to file
+        writeToFile('README.md', formatData(userInput))
     })
 }
 
 // Function call to initialize app
 init();
 
-function formatData(data){
-    
+function formatData(userInput) {
+    return `# ${userInput.title}
+
+## Description
+${userInput.description}
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Testing](#testing)
+- [Questions](#questions)
+
+## Installation
+${userInput.installation}
+
+## Usage
+${userInput.usage}
+
+## License 
+${userInput.license}
+
+## Contributing
+${userInput.contributing}
+
+## Tests
+${userInput.tests}
+
+## Questions?
+- Github: (https://github.com/${userInput.username})
+- Email: ${userInput.email}
+`
 }
