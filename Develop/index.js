@@ -24,9 +24,20 @@ const questions = [
         message: 'Define how to use your project',
     },
     {
-        type: '?',
+        type: 'list',
         name: 'license',
         message: 'Please select the license used in your project',
+        choices: [
+            'Apache License 2.0',
+            'BSD 3-Clause license',
+            'BSD 2-Clause license',
+            'GNU General Public License',
+            'GNU Library General Public License',
+            'MIT license',
+            'Mozilla Public License 2.0',
+            'Common Development and Distribution License',
+            'Eclipse Public License version 2.0'
+        ]
     },
     {
         type: 'input',
@@ -75,3 +86,7 @@ function init() {
 
 // Function call to initialize app
 init();
+
+function formatData(data){
+    
+}
