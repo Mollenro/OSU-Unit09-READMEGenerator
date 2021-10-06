@@ -7,57 +7,117 @@ const questions = [
         type: 'input',
         name: 'title',
         message: 'What is the title of your project?',
+        validate: titleInput => { 
+            if(titleInput){
+                return true 
+            }else{ 
+                console.log('Please enter a title for your project')
+                return false 
+            }
+        }
     },
     {
         type: 'input',
         name: 'description',
         message: 'Please describe your project',
+        validate: descInput => { 
+            if(descInput){
+                return true 
+            }else{ 
+                console.log('Please enter a description for your project')
+                return false 
+            }
+        }
     },
     {
         type: 'input',
         name: 'installation',
         message: 'Define how the project is installed',
+        validate: installInput => { 
+            if(installInput){
+                return true 
+            }else{ 
+                console.log('Please enter an installation method for your project')
+                return false 
+            }
+        }
     },
     {
         type: 'input',
         name: 'usage',
         message: 'Define how to use your project',
+        validate: useInput => { 
+            if(useInput){
+                return true 
+            }else{ 
+                console.log('Please define how to use your project')
+                return false 
+            }
+        }
     },
     {
         type: 'list',
         name: 'license',
         message: 'Please select the license used in your project',
         choices: [
-            'Apache License 2.0',
-            'BSD 3-Clause license',
-            'BSD 2-Clause license',
-            'GNU General Public License',
-            'GNU Library General Public License',
-            'MIT license',
-            'Mozilla Public License 2.0',
-            'Common Development and Distribution License',
-            'Eclipse Public License version 2.0'
+            'Apache',
+            'MIT',
+            'Mozilla',
+            'Eclipse',
+            'None'
         ]
     },
     {
         type: 'input',
         name: 'contributing',
         message: 'Define how you want people to contribute to your project',
+        validate: contributeInput => { 
+            if(contributeInput){
+                return true 
+            }else{ 
+                console.log('Please define how you want others to contribute to your project')
+                return false 
+            }
+        }
     },
     {
         type: 'input',
         name: 'testing',
         message: 'Define how you test your project',
+        validate: testInput => { 
+            if(testInput){
+                return true 
+            }else{ 
+                console.log('Please define how you test your project')
+                return false 
+            }
+        }
     },
     {
         type: 'input',
         name: 'username',
         message: 'What is your GitHub username?',
+        validate: githubInput => { 
+            if(githubInput){
+                return true 
+            }else{ 
+                console.log('Please enter your Github username')
+                return false 
+            }
+        }
     },
     {
         type: 'input',
         name: 'email',
         message: 'What is your email?',
+        validate: titleInput => { 
+            if(titleInput){
+                return true 
+            }else{ 
+                console.log('Please enter your email')
+                return false 
+            }
+        }
     }
     
 ];
@@ -103,7 +163,7 @@ ${userInput.installation}
 ${userInput.usage}
 
 ## License 
-${userInput.license}
+[![license](https://img.shields.io/badge/license-${userInput.license}-red)](https://shields.io)
 
 ## Contributing
 ${userInput.contributing}
